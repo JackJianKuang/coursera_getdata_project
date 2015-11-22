@@ -1,4 +1,3 @@
-## variables
 Question 1
 * df_X_train : data.frame read from "train/X_train.txt" (measurement values)
 * df_y_train : data.frame read from "train/y_train.txt" (activity_id)
@@ -23,4 +22,8 @@ Question 2
 
 Question 3
 df_activity_labels : read activity labels 
-df_merge_mean_std_label : 
+df_merge_mean_std_label : merge activity labels with df_merge_mean_std through activity_id
+
+Question 5
+df_activity_subject_mean : group df_merge_mean_std_label by activity_label and subject_id, get mean values for each other columns
+write df_activity_subject_mean into a text file
