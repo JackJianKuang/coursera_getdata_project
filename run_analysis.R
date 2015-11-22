@@ -1,3 +1,4 @@
+#install.packages("dplyr")
 library(dplyr)
 
 # 1.Merges the training and the test sets to create one data set.
@@ -38,8 +39,7 @@ df_merge_mean_std_label <- merge(df_activity_labels, df_merge_mean_std, by.x = "
 
 
 # 5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
-df_merge_mean_label <- select(df_merge_mean_std_label, activity_label, subject_id, contains("mean()"))
-df_activity_subject_mean <- group_by(df_merge_mean_label, activity_label, subject_id)%>%
+df_activity_subject_mean <- group_by(df_merge_mean_std_label, activity_label, subject_id)%>%
     summarise_each(funs(mean))
 
-write.table(df_activity_subject_mean, file = "data/UCI HAR Dataset/output_activity_subject_mean.txt", row.names = FALSE)
+write.table(df_activity_subject_mean, file = "data/output_activity_subject_mean.txt", row.names = FALSE)
